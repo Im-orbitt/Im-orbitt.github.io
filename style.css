@@ -1,0 +1,499 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&family=JetBrains+Mono:wght@400;700&display=swap');
+
+
+:root {
+
+    --base: #1e1e2e;
+    --surface: #313244;
+
+    --text: #cdd6f4;
+    --subtext: #a6adc8;
+
+    --blue: #89b4fa;
+    --lavender: #b4befe;
+
+    --glass: rgba(49, 50, 68, 0.55);
+
+}
+
+
+
+* {
+
+    box-sizing: border-box;
+
+}
+
+
+
+html {
+
+    scroll-behavior: smooth;
+
+}
+
+
+
+body {
+
+    margin: 0;
+
+    background: var(--base);
+
+    color: var(--text);
+
+    font-family: "Poppins", sans-serif;
+
+    overflow-x: hidden;
+
+}
+
+
+
+
+
+/* NAVBAR */
+
+
+header {
+
+    position: fixed;
+
+    top: 35px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 92%;
+
+    height: 90px;
+
+    display: flex;
+    align-items: center;
+
+
+    padding: 20px 30px;
+
+
+    background: rgba(30,30,46,0.55);
+
+    backdrop-filter: blur(15px);
+
+
+    border-radius: 25px;
+
+
+    z-index: 1000;
+
+
+    transition:
+        height 0.4s,
+        opacity 0.4s,
+        backdrop-filter 0.4s,
+        top 0.4s;
+
+}
+
+
+
+header.fade {
+
+    top: 10px;
+
+    height: 60px;
+
+    opacity: 0.25;
+
+    backdrop-filter: blur(25px);
+
+}
+
+
+
+header.gone {
+
+    opacity: 0;
+
+    pointer-events: none;
+
+}
+
+
+
+nav {
+
+    width: 100%;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+}
+
+
+
+nav h1 {
+
+    margin: 0;
+
+    font-size: 1.8rem;
+
+}
+
+
+
+.nav-links a {
+
+    color: var(--text);
+
+    text-decoration: none;
+
+
+    margin-left: 20px;
+
+
+    transition: 0.2s;
+
+}
+
+
+
+.nav-links a:hover {
+
+    color: var(--blue);
+
+}
+
+
+
+
+
+
+/* MAIN */
+
+
+main {
+
+    width: 85%;
+
+    margin: auto;
+
+
+    padding-top: 160px;
+
+
+    position: relative;
+
+    z-index: 1;
+
+}
+
+section {
+
+    min-height: 85vh;
+
+
+    display: flex;
+
+    flex-direction: column;
+
+
+    justify-content: center;
+
+}
+
+
+
+
+
+/* TERMINALS */
+
+
+.terminal {
+
+
+    background: var(--glass);
+
+
+    border:
+
+        1px solid rgba(137,180,250,0.2);
+
+
+
+    backdrop-filter: blur(15px);
+
+
+    border-radius: 20px;
+
+
+    padding: 30px;
+
+
+
+    box-shadow:
+
+        0 0 30px rgba(137,180,250,0.15);
+
+
+
+    animation: appear 0.8s ease;
+
+}
+
+
+
+
+.terminal p:first-child {
+
+    color: var(--blue);
+
+    font-family: "JetBrains Mono", monospace;
+
+}
+
+
+
+.terminal p:first-child::after {
+
+    content: "_";
+
+    animation: blink 1s infinite;
+
+}
+
+
+
+
+
+
+/* TEXT */
+
+
+h1 {
+
+    font-size: 3rem;
+
+}
+
+
+
+h2 {
+
+    color: var(--blue);
+
+}
+
+
+
+
+
+/* CARDS */
+
+
+.cards {
+
+    display: flex;
+
+    gap: 20px;
+
+    flex-wrap: wrap;
+
+}
+
+
+
+
+.card {
+
+
+    width: 280px;
+
+
+    padding: 25px;
+
+
+
+    background: var(--glass);
+
+
+    backdrop-filter: blur(15px);
+
+
+
+    border-radius: 20px;
+
+
+    border:
+
+        1px solid rgba(137,180,250,0.2);
+
+
+
+    transition: 0.3s;
+
+}
+
+
+
+
+.card:hover {
+
+
+    transform: translateY(-8px);
+
+
+
+    box-shadow:
+
+        0 15px 30px rgba(137,180,250,0.2);
+
+}
+
+
+
+
+
+
+
+/* LINKS */
+
+
+a {
+
+    color: var(--blue);
+
+}
+
+
+
+
+
+
+/* FOOTER */
+
+
+footer {
+
+    text-align: center;
+
+
+    padding: 30px;
+
+
+    color: var(--subtext);
+
+}
+
+
+
+
+
+
+/* BACK TO TOP */
+
+
+#top-btn {
+
+
+    position: fixed;
+
+
+    bottom: 25px;
+
+    right: 25px;
+
+
+
+    width: 50px;
+
+    height: 50px;
+
+
+
+    border-radius: 50%;
+
+
+    border: none;
+
+
+
+    background: var(--blue);
+
+
+    color: var(--base);
+
+
+
+    opacity: 0;
+
+
+    pointer-events: none;
+
+
+
+    transition: 0.3s;
+
+
+
+    font-size: 1.3rem;
+
+}
+
+
+
+
+#top-btn.show {
+
+
+    opacity: 1;
+
+
+    pointer-events: auto;
+
+}
+
+
+
+
+
+
+/* ANIMATIONS */
+
+
+@keyframes blink {
+
+    50% {
+
+        opacity: 0;
+
+    }
+
+}
+
+
+
+@keyframes appear {
+
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(15px);
+
+    }
+
+
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+}
